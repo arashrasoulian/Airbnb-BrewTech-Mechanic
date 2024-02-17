@@ -24,8 +24,9 @@
     <div class="flat">
       <h2><%= flat.name %></h2>
       <p><%= flat.address %></p>
-      <p>Price per night: <%= flat.prices %> EUR</p>
-      <%= image_tag flat.pictures.first if flat.pictures.any? %>
+      <p>Price per night: <%= flat.price %> EUR</p>
+      <%= image_tag flat.pictures ? flat.pictures : "/assets/images/no_image.jpeg" %>
+
     </div>
   <% end %>
 

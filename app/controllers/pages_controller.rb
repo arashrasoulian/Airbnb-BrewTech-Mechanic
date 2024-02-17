@@ -7,4 +7,5 @@ class PagesController < ApplicationController
       # Initialize new booking
       @booking = Booking.new
   end
+  
 end
