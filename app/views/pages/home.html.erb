@@ -13,6 +13,8 @@
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %></p>
       <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+            <%= link_to 'new flat', new_flat_path %>
+
     <% else %>
       <%= link_to 'Sign up', new_user_registration_path %> or
       <%= link_to 'Log in', new_user_session_path %>
@@ -25,7 +27,7 @@
       <h2><%= flat.name %></h2>
       <p><%= flat.address %></p>
       <p>Price per night: <%= flat.price %> EUR</p>
-      <%= image_tag flat.pictures ? flat.pictures : "/assets/images/no_image.jpeg" %>
+      <%= image_tag  flat.pictures ? flat.pictures :  "no_image.jpeg" %>
 
     </div>
   <% end %>

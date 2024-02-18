@@ -8,4 +8,5 @@ class PagesController < ApplicationController
       @booking = Booking.new
   end
   
+
 end

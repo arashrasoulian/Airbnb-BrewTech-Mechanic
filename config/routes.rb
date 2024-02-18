@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :bookings
+  resources :flats
 
   # get "users/sign_out", to: "pages#home"
 
