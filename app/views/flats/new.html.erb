@@ -1,0 +1,14 @@
+<%= simple_form_for @flat do |form| %>
+  <%= form.error_notification %>
+
+  <div class="form-inputs">
+    <%= form.input :name, required: true %>
+    <%= form.input :price, required: true %>
+    <%= form.input :pictures %>
+    <%= form.input :address, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.button :submit %>
+  </div>
+<% end %>
