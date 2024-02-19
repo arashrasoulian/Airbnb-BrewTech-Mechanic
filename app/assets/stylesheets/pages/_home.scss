@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+@import "config/fonts";
+@import "config/colors";
+// ... your other imports
+
+// Add the rest of your specific styles for the home page here
+
+.user-greeting {
+  background-color: $light-gray; // Example of using a color variable
+  padding: 10px 20px;
+  text-align: right;
+  // ... rest of the styles
+}
+
+.flats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  // ... rest of the styles
+}
+
+.flat {
+  border: 1px solid $border-color; // Use a color variable for border
+  padding: 10px;
+  border-radius: $border-radius; // Use a border-radius variable
+  text-align: center;
+  // ... rest of the styles
+}

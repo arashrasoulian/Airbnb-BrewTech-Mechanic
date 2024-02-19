@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>AirBnB Brew-Tech_Mechanic</title>
-  <style>
-    .flat { border: 1px solid #ccc; margin: 20px; padding: 10px; }
-    .booking-form { margin-top: 20px; }
-    .user-greeting { margin-top: 20px; }
-  </style>
-</head>
 <body>
   <div class="user-greeting">
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %></p>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } 
             <%= link_to 'new flat', new_flat_path %>
 
     <% else %>
@@ -21,34 +12,31 @@
     <% end %>
   </div>
 
-  <h1>Available Flats</h1>
-  <% @flats.each do |flat| %>
-    <div class="flat">
-      <h2><%= flat.name %></h2>
-      <p><%= flat.address %></p>
-      <p>Price per night: <%= flat.price %> EUR</p>
-      <%= image_tag  flat.pictures ? flat.pictures :  "no_image.jpeg" %>
-
+  <div class="container">
+    <h1>Flats</h1>
+    <div class="flats-grid">
+      <% @flats.each do |flat| %>
+        <div class="flat">
+          <!-- Placeholder for flat image -->
+          <!-- Replace with your actual image code -->
+          <div class="flat-image">
+            <!--%= image_tag("placeholder.jpg", alt: "Flat image") %-->
+            <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
+          </div>
+          <div class="flat-info">
+            <h2><%= flat.name %></h2>
+            <!-- Add more flat details you want to show here -->
+            <%= link_to 'Show', flat_path(flat), class: 'flat-link' %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="booking-form">
-    <h2>Book a Flat</h2>
-    <%= form_with model: @booking, local: true do |form| %>
-      <div>
-        <%= form.label :flat_id, "Choose a flat" %>
-        <%= form.collection_select :flat_id, Flat.all, :id, :name, prompt: "Select..." %>
-      </div>
-      <div>
-        <%= form.label :start_date, "Start date" %>
-        <%= form.date_field :start_date %>
-      </div>
-      <div>
-        <%= form.label :end_date, "End date" %>
-        <%= form.date_field :end_date %>
-      </div>
-      <%= form.submit "Book" %>
-    <% end %>
+    <div class="map">
+      <p>Map showing pins for each flat</p>
+      <!-- Placeholder for map - you will replace with actual map code -->
+    </div>
   </div>
+
+  <%= javascript_include_tag 'application' %>
+  <!-- Include your JavaScript file that initializes the map -->
 </body>
-</html>
