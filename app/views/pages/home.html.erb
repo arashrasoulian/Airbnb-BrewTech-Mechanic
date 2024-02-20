@@ -3,17 +3,17 @@
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %></p>
 
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } 
-            <%= link_to 'new flat', new_flat_path %>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }%>
+             <%= link_to 'new flat', new_flat_path %>
 
     <% else %>
       <%= link_to 'Sign up', new_user_registration_path %> or
-      <%= link_to 'Log in', new_user_session_path %>
+       <%= link_to 'Log in', new_user_session_path %>
     <% end %>
   </div>
 
   <div class="container">
-    <h1>Flats</h1>
+    <h1>Flats:</h1>
     <div class="flats-grid">
       <% @flats.each do |flat| %>
         <div class="flat">
@@ -21,7 +21,7 @@
           <!-- Replace with your actual image code -->
           <div class="flat-image">
             <!--%= image_tag("placeholder.jpg", alt: "Flat image") %-->
-            <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
+            <%= image_tag flat.picture ? flat.picture : "no_image.png" ,style: "width: 100px; height: 150px;" %>
           </div>
           <div class="flat-info">
             <h2><%= flat.name %></h2>

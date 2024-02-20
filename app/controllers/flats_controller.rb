@@ -3,6 +3,10 @@ class FlatsController < ApplicationController
     @flat = current_user.flats.build
   end
 
+  def show
+    @flat = Flat.find(params[:id])
+  end
+
   def create
     @flat = current_user.flats.build(flat_params)
     if @flat.save
@@ -11,6 +15,8 @@ class FlatsController < ApplicationController
       render :new
     end
   end
+
+ 
 
   private
 
