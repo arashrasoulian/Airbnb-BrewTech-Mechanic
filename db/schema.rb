@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_02_20_084455) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,7 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_084455) do
   create_table "flats", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.text "pictures"
+    t.text "picture"
     t.bigint "user_id", null: false
     t.text "address"
     t.datetime "created_at", null: false

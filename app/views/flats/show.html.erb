@@ -1,0 +1,27 @@
+
+<div class="row mt-5">
+  <div class="col-5 ">
+    <%= image_tag @flat.picture ? @flat.picture : "no_image.png" , style: "width: 400px; height: 500px;" %>
+  </div>
+  <div class="col-6 text-center mt-4">
+    <h1><%= @flat.name %></h1>
+    <h3 class="mt-2"> price: <%= @flat.price %> euro </h3>
+    <div class="">
+
+    <div class="mt-5 ">
+      <%= render 'bookings/form', flat: @flat %>
+    </div>
+
+
+
+
+    <%# <%= link_to "Book Now", new_booking_path(flat_id: @flat.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+
+</div>
+
+<div class="reviews">
+reviews :
+
+</div>

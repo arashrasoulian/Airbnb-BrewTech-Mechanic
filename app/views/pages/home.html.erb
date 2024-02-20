@@ -1,14 +1,18 @@
   <div class="user-greeting">
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %></p>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }%>
+             <%= link_to 'new flat', new_flat_path %>
+
     <% else %>
       <%= link_to 'Sign up', new_user_registration_path %> or
-      <%= link_to 'Log in', new_user_session_path %>
+       <%= link_to 'Log in', new_user_session_path %>
     <% end %>
   </div>
 
   <div class="container">
+<
     <h1>AirbnbBrewTechMechanic</h1>
     <div class="d-flex">
       <div class="d-flex flex-column col-8">
@@ -16,13 +20,14 @@
         <% @flats.each do |flat| %>
           <div class="flat">
             <div class="flat-image">
-              <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
+              <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" ,style: "width: 100px; height: 150px;"%>
             </div>
             <div class="flat-info">
               <h3><%= flat.name %></h3>
               <%= flat.address %>
               <%= link_to 'Show', flat_path(flat), class: 'flat-link' %>
             </div>
+            
           </div>
         <% end %>
       </div>

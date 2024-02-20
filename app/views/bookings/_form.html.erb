@@ -1,0 +1,12 @@
+<%= form_with(model: Booking.new, url: bookings_path, local: true) do |form| %>
+  <%= form.hidden_field :flat_id, value: flat.id %>
+  <div class="form-group mt-2">
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date, class: "form-control" %>
+  </div>
+  <div class="form-group mt-3">
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date, class: "form-control " %>
+  </div>
+  <%= form.submit "Book Now", class: "btn btn-primary mt-3" %>
+<% end %>
