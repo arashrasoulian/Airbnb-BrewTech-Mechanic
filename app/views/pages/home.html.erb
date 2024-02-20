@@ -1,4 +1,3 @@
-<body>
   <div class="user-greeting">
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %></p>
@@ -11,27 +10,29 @@
 
   <div class="container">
     <h1>AirbnbBrewTechMechanic</h1>
-    <h2>All Flats</h2>
-    <div class="flats-grid">
-      <% @flats.each do |flat| %>
-        <div class="flat">
-          <div class="flat-image">
-             <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
+    <div class="d-flex">
+      <div class="d-flex flex-column col-8">
+        <h2>All Flats</h2>
+        <% @flats.each do |flat| %>
+          <div class="flat">
+            <div class="flat-image">
+              <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
+            </div>
+            <div class="flat-info">
+              <h3><%= flat.name %></h3>
+              <%= flat.address %>
+              <%= link_to 'Show', flat_path(flat), class: 'flat-link' %>
+            </div>
           </div>
-          <div class="flat-info">
-            <h3><%= flat.name %></h3>
-            <%= flat.address %>
-            <%= link_to 'Show', flat_path(flat), class: 'flat-link' %>
-          </div>
+        <% end %>
+      </div>
+      <div class="d-flex flex-column col-4">
+        <h2>Map</h2>
+        <div style="width: 100%; height: 300px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-      <% end %>
+       </div>
     </div>
-
-    <h2>Map</h2>
-    <div style="width: 100%; height: 300px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-
   </div>
