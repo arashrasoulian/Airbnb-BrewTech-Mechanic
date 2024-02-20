@@ -10,30 +10,28 @@
   </div>
 
   <div class="container">
-    <h1>Flats</h1>
+    <h1>AirbnbBrewTechMechanic</h1>
+    <h2>All Flats</h2>
     <div class="flats-grid">
       <% @flats.each do |flat| %>
         <div class="flat">
-          <!-- Placeholder for flat image -->
-          <!-- Replace with your actual image code -->
           <div class="flat-image">
-            <!--%= image_tag("no_image.jpg", alt: "Flat image") %-->
              <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
           </div>
           <div class="flat-info">
-            <h2><%= flat.name %></h2>
-            <!-- Add more flat details you want to show here -->
+            <h3><%= flat.name %></h3>
+            <%= flat.address %>
             <%= link_to 'Show', flat_path(flat), class: 'flat-link' %>
           </div>
         </div>
       <% end %>
     </div>
 
-    <div style="width: 70%; height: 300px;"
+    <h2>Map</h2>
+    <div style="width: 100%; height: 300px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-
 
   </div>
