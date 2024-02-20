@@ -1,4 +1,3 @@
-<body>
   <div class="user-greeting">
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %></p>
@@ -13,30 +12,32 @@
   </div>
 
   <div class="container">
-    <h1>Flats:</h1>
-    <div class="flats-grid">
-      <% @flats.each do |flat| %>
-        <div class="flat">
-          <!-- Placeholder for flat image -->
-          <!-- Replace with your actual image code -->
-          <div class="flat-image">
-            <!--%= image_tag("placeholder.jpg", alt: "Flat image") %-->
-            <%= image_tag flat.picture ? flat.picture : "no_image.png" ,style: "width: 100px; height: 150px;" %>
+<
+    <h1>AirbnbBrewTechMechanic</h1>
+    <div class="d-flex">
+      <div class="d-flex flex-column col-8">
+        <h2>All Flats</h2>
+        <% @flats.each do |flat| %>
+          <div class="flat">
+            <div class="flat-image">
+              <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" ,style: "width: 100px; height: 150px;"%>
+            </div>
+            <div class="flat-info">
+              <h3><%= flat.name %></h3>
+              <%= flat.address %>
+              <%= link_to 'Show', flat_path(flat), class: 'flat-link' %>
+            </div>
+            
           </div>
-          <div class="flat-info">
-            <h2><%= flat.name %></h2>
-            <!-- Add more flat details you want to show here -->
-            <%= link_to 'Show', flat_path(flat), class: 'flat-link' %>
-          </div>
+        <% end %>
+      </div>
+      <div class="d-flex flex-column col-4">
+        <h2>Map</h2>
+        <div style="width: 100%; height: 300px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-      <% end %>
-    </div>
-    <div class="map">
-      <p>Map showing pins for each flat</p>
-      <!-- Placeholder for map - you will replace with actual map code -->
+       </div>
     </div>
   </div>
-
-  <%= javascript_include_tag 'application' %>
-  <!-- Include your JavaScript file that initializes the map -->
-</body>

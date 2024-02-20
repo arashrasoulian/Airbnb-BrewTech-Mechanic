@@ -9,15 +9,6 @@
   background-color: $light-gray; // Example of using a color variable
   padding: 10px 20px;
   text-align: right;
-  // ... rest of the styles
-}
-
-.flats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  // ... rest of the styles
 }
 
 .flat {
@@ -25,5 +16,11 @@
   padding: 10px;
   border-radius: $border-radius; // Use a border-radius variable
   text-align: center;
-  // ... rest of the styles
+  overflow: hidden;
+}
+
+.flat-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
