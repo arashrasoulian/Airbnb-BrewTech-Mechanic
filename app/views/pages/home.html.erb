@@ -2,10 +2,7 @@
   <div class="user-greeting">
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.email %></p>
-
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } 
-            <%= link_to 'new flat', new_flat_path %>
-
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% else %>
       <%= link_to 'Sign up', new_user_registration_path %> or
       <%= link_to 'Log in', new_user_session_path %>
@@ -13,30 +10,28 @@
   </div>
 
   <div class="container">
-    <h1>Flats</h1>
+    <h1>AirbnbBrewTechMechanic</h1>
+    <h2>All Flats</h2>
     <div class="flats-grid">
       <% @flats.each do |flat| %>
         <div class="flat">
-          <!-- Placeholder for flat image -->
-          <!-- Replace with your actual image code -->
           <div class="flat-image">
-            <!--%= image_tag("placeholder.jpg", alt: "Flat image") %-->
-            <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
+             <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
           </div>
           <div class="flat-info">
-            <h2><%= flat.name %></h2>
-            <!-- Add more flat details you want to show here -->
+            <h3><%= flat.name %></h3>
+            <%= flat.address %>
             <%= link_to 'Show', flat_path(flat), class: 'flat-link' %>
           </div>
         </div>
       <% end %>
     </div>
-    <div class="map">
-      <p>Map showing pins for each flat</p>
-      <!-- Placeholder for map - you will replace with actual map code -->
-    </div>
-  </div>
 
-  <%= javascript_include_tag 'application' %>
-  <!-- Include your JavaScript file that initializes the map -->
-</body>
+    <h2>Map</h2>
+    <div style="width: 100%; height: 300px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+  </div>
