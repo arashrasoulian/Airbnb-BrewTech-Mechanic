@@ -10,11 +10,24 @@
 require 'faker'
 
 puts 'Creating 10 fake Users'
-10.times do
-  user = User.new(
-    name:    "#{Faker::Name.first_name}, #{Faker::NAme.last_name}",
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}"
+users = 10.times.map do
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'securepassword',
+    # Include any other required fields your User model may have
   )
-  user.save!
 end
-puts 'Finished!'
+
+puts 'Creating 10 fake Flats'
+10.times do |i|
+  flat = Flat.new(
+    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    user: users[i % users.size] # This ensures each flat is associated with a user
+    # Include any other required fields your Flat model may have
+  )
+  flat.save!
+end
