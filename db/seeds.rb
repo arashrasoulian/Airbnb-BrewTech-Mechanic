@@ -8,8 +8,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'faker'
+require "open-uri"
+
+Flat.destroy_all
+
+User.destroy_all
 
 puts 'Creating 10 fake Users'
+
 users = 10.times.map do
   User.create!(
     first_name: Faker::Name.first_name,
@@ -29,5 +35,7 @@ puts 'Creating 10 fake Flats'
     user: users[i % users.size] # This ensures each flat is associated with a user
     # Include any other required fields your Flat model may have
   )
+  file = URI.open("https://source.unsplash.com/random/?apartment")
+  flat.photo.attach(io: file, filename: "#{flat.address}.png", content_type: "image/png")
   flat.save!
 end

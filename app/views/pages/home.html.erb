@@ -16,7 +16,11 @@
         <% @flats.each do |flat| %>
           <div class="flat">
             <div class="flat-image">
-              <%= image_tag flat.pictures ? flat.pictures : "no_image.jpeg" %>
+              <% if flat.photo.attached?  %>
+                <%= cl_image_tag flat.photo.key, crop: :fill %>
+              <% else %>
+                <%= image_tag "no_image.jpeg" %>
+              <% end %>
             </div>
             <div class="flat-info">
               <h3><%= flat.name %></h3>
