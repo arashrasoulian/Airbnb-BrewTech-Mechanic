@@ -1,0 +1,35 @@
+<div class="flex-container">
+  <h2>My profile</h2>
+  <div class="flex-item">
+    <p>Username: <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
+    <p>Email: <%= current_user.email %></p>
+
+    <%= link_to 'Edit Profile', edit_profile_path %>
+  </div>
+
+  <div class="flex-item">
+    <h2>My Bookings:</h2>
+    <ol>
+      <% @bookings.each do |booking| %>
+        <li>
+          <p><%= booking.flat.address %></p>
+          <%= link_to 'Show', booking_path(booking) %> |
+          <%= link_to 'Edit', edit_booking_path(booking) %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+
+  <div class="flex-item">
+    <h2>My flats:</h2>
+    <ol>
+      <% current_user.flats.each do |flat| %>
+        <li>
+          <p><%= flat.address %></p>
+          <%= link_to 'Show', flat_path(flat) %> |
+          <%= link_to 'Edit', edit_flat_path(flat) %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>

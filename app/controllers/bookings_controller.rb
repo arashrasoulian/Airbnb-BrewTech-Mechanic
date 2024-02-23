@@ -10,6 +10,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+    @booking = current_user.bookings.first
+    if @booking.present?
+      redirect_to @booking.flat
+    else
+      render 'flats/show', notice: "You don't have any booking. Do you want to book now?"
+    end
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
   private
 
   def booking_params
