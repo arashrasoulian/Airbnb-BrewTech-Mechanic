@@ -16,8 +16,6 @@ class FlatsController < ApplicationController
     end
   end
 
- 
-
   private
 
   def flat_params
