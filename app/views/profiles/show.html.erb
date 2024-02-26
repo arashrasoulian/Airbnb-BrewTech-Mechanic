@@ -14,22 +14,43 @@
         <li>
           <p><%= booking.flat.address %></p>
           <%= link_to 'Show', booking_path(booking) %> |
+          <!--for some reason (didn't understand why, can't find another page)
+          here is redirected to the page with new booking, but not existing one-->
           <%= link_to 'Edit', edit_booking_path(booking) %>
         </li>
       <% end %>
     </ol>
   </div>
 
-  <div class="flex-item">
-    <h2>My flats:</h2>
+  <!--div class="flex-item">
+    <h2>My Booking_requests:</h2>
     <ol>
-      <% current_user.flats.each do |flat| %>
+      <% @my_booking_request.each do |booking| %>
         <li>
-          <p><%= flat.address %></p>
-          <%= link_to 'Show', flat_path(flat) %> |
-          <%= link_to 'Edit', edit_flat_path(flat) %>
+          <p><%= booking.flat.address %></p>
+          <%= link_to 'Show', booking_path(booking) %> |
+          <%= link_to 'Edit', edit_booking_path(booking) %>
         </li>
       <% end %>
     </ol>
+  </div-->
+
+
+  <div class="flex-item">
+    <h2>My flats:</h2>
+    <% if current_user.flats.any? %>
+      <ol>
+        <% current_user.flats.each do |flat| %>
+          <li>
+            <p><%= flat.address %></p>
+            <%= link_to 'Show', flat_path(flat) %> |
+            <%= link_to 'Edit', edit_flat_path(flat) %>
+          </li>
+        <% end %>
+      </ol>
+    <% else %>
+      <p>You haven't created any flats yet.</p>
+    <% end %>
   </div>
+
 </div>

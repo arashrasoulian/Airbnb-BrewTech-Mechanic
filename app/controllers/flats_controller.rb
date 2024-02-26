@@ -16,7 +16,7 @@ class FlatsController < ApplicationController
     end
   end
 
- 
+
 
   private
 

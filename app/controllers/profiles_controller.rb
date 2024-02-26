@@ -3,8 +3,9 @@ class ProfilesController < ApplicationController
   before_action :set_user
 
   def show
+    @my_booking_request = current_user.booking_requests
     @bookings = @user.bookings
-    # Assuming you have a Booking model related to User
+    #maybe also here is problem with show button, since it doesn't work
   end
 
   def edit
@@ -25,6 +26,6 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email) # Add any other user attributes
+    params.require(:user).permit(:first_name, :last_name, :email) # here we can add any other user attribute
   end
 end

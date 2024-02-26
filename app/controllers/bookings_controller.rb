@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   def create
     @booking = current_user.bookings.build(booking_params)
     if @booking.save
-      redirect_to @booking.flat, notice: "Booking was successfully created."
+      redirect_to profile_path, notice: "Booking was successfully created."
+      #redirected to Profile page
     else
       render 'flats/show'
     end
@@ -19,9 +20,9 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
-    @booking = Booking.find(params[:id])
-  end
+  #def edit
+  #  @booking = Booking.find(params[:id]) #HERE CODE IS NOT WORKING!!
+  #end
 
   private
 
