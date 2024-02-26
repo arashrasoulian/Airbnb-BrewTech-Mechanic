@@ -1,10 +1,13 @@
 // Specific CSS for your home-page
 @import "config/fonts";
 @import "config/colors";
+@import "home_filter";
 // ... your other imports
 
 // Add the rest of your specific styles for the home page here
-
+.body-background{
+  background-color: $background;
+}
 .user-greeting {
   background-color: $light-gray; // Example of using a color variable
   padding: 10px 20px;

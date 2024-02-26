@@ -1,0 +1,38 @@
+#slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background-color: blue;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#prev-button,
+#next-button {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 0px;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+  opacity: 0.1;
+
+}
+
+#prev-button:hover,
+#next-button:hover {
+opacity:0.7;
+
+}
+
+#next-button {
+  right: 80px;
+}
+
+

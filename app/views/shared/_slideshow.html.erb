@@ -1,0 +1,15 @@
+<div data-controller="slideshow" >
+  <div data-slideshow-target="slide" >
+    <%= image_tag "slide_1.jpg" %>
+  </div>
+  <div data-slideshow-target="slide" >
+  <%= image_tag("slide_1.jpg", id: "slide-1", class: "slide") %>
+  </div>
+  <div data-slideshow-target="slide">Slide 3</div>
+  <div data-action="click->slideshow#prev" id="prev-button">
+ <%= image_tag "chevron-compact-left", style:"height:80px;" %>
+  </div>
+  <div data-action="click->slideshow#next" id="next-button">
+ <%= image_tag "chevron-compact-right" , style:"height:80px;"%>
+  </div>
+</div>

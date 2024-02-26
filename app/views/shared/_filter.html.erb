@@ -1,0 +1,20 @@
+                          <% # filter on city and price %>
+<%= form_with(url: root_path, method: "get") do |form| %>
+  <div class="row" ,  id="filter-line" >
+    <div class="col-2 px-1">
+      <%= form.label :city, "City:" , id:"search-label"  %>
+      <%= form.select :city, options_for_select( @cities), { include_blank: "city" }, class: "form-control custom-input"%>
+    </div>
+    <div class="col-2 px-1">
+      <%= form.label :min_price, "Minimum Price:", id:"search-label" %>
+      <%= form.number_field :min_price, class: "form-control custom-input" , placeholder: "Minimum Price:" %>
+    </div>
+    <div class="col-2 px-1">
+      <%= form.label :max_price, "Maximum Price:" , id:"search-label"%>
+      <%= form.number_field :max_price, class: "form-control custom-input" , placeholder: "maximum Price:"  %>
+    </div>
+    <div class="col-2 px-1">
+      <%= form.submit "Search", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
