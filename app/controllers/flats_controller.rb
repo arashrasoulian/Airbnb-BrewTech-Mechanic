@@ -15,7 +15,8 @@ class FlatsController < ApplicationController
       render :new
     end
   end
-
+  
+  
   private
 
   def flat_params

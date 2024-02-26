@@ -32,19 +32,19 @@
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } ,class: "nav-link" %>
             </li>
             <li class="nav-item active">
-                <%= link_to "new flat", new_flat_path , class: "nav-link"%>
+                <%= link_to "Create new flat", new_flat_path , class: "nav-link"%>
              </li>
             <li class="nav-item">
-              <%= link_to "about", "#", class: "nav-link" %>
+              <%= link_to "About AirBnb", "#", class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Action", "#", class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+                <%= link_to "My profile", profile_path, class: "dropdown-item" %>
+                <%= link_to "Edit my profile", edit_profile_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }, class: "dropdown-item" %>
               </div>
             </li>
           <% else %>
