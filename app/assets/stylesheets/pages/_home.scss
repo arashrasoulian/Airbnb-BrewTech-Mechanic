@@ -2,11 +2,15 @@
 @import "config/fonts";
 @import "config/colors";
 @import "home_filter";
+@import "./home/best_option";
 // ... your other imports
 
 // Add the rest of your specific styles for the home page here
 .body-background{
   background-color: $background;
+}
+.container-background{
+  background-color: $container-background;
 }
 .user-greeting {
   background-color: $light-gray; // Example of using a color variable
@@ -15,17 +19,15 @@
 }
 
 .flat {
-  border: 1px solid $border-color; // Use a color variable for border
-  padding: 10px;
-  border-radius: $border-radius; // Use a border-radius variable
   text-align: center;
   overflow: hidden;
 }
 
 .flat-image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   object-fit: cover;
+  
 }
 
 .search-form {

@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
+    @cheapest_flats = Flat.order(price: :asc).limit(3)
     @cities = Flat.pluck(:city).uniq
     if params[:query].present?
       @flats = Flat.search_by_name_and_description(params[:query])
@@ -29,4 +30,3 @@ class PagesController < ApplicationController
     params.require(:flat).permit(:name, :price, :photo, :address, :description, :city)
   end
 end
-
