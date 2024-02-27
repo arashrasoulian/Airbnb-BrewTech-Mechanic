@@ -1,15 +1,19 @@
-#slideshow-container {
+
+.slideshow-container{
   width: 100%;
   height: 400px;
-  overflow: hidden;
-  background-color: blue;
-  margin-top: -70px !important;
-  position: relative;
-
 }
-
+.slide {
+  position: relative;
+  object-fit: cover;
+}
 .slide > img{
   object-fit: cover;
+
+}
+#filter-line{
+  top: 100px;
+  z-index: 1000;
 }
 
 #prev-button,

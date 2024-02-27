@@ -4,14 +4,19 @@
 @import "home_filter";
 @import "./home/best_option";
 
+#top-page-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background-color: blue;
+  margin-top: -80px !important;
+  position: relative;
+  object-fit: cover;
+}
 .navbar-style{
   background-color: transparent;
 }
-.slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+
 .body-background{
   background-color: $background;
 }
@@ -24,8 +29,8 @@
   text-align: right;
 }
 
-.flat {
-}
+// .flat {
+// }
 
 
 .flat-image img {
