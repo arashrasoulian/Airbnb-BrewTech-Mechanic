@@ -3,9 +3,15 @@
 @import "config/colors";
 @import "home_filter";
 @import "./home/best_option";
-// ... your other imports
 
-// Add the rest of your specific styles for the home page here
+.navbar-style{
+  background-color: transparent;
+}
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 .body-background{
   background-color: $background;
 }
@@ -13,22 +19,43 @@
   background-color: $container-background;
 }
 .user-greeting {
-  background-color: $light-gray; // Example of using a color variable
+  background-color: $light-gray;
   padding: 10px 20px;
   text-align: right;
 }
 
 .flat {
-  text-align: center;
-  overflow: hidden;
 }
 
+
 .flat-image img {
+  position: relative;
   width: 100%;
   height: auto;
   object-fit: cover;
-  
+
 }
+.all-picture-black{
+
+  position: absolute;
+  height:110px; /* Adjust the height as needed */
+  background: linear-gradient(to bottom, rgba(0,0,0,0)  , rgba(0,0,0,0.7) );
+  margin-top: -110px;
+}
+.all-picture-black p{
+  margin-top: 83px;
+  margin-left: 10%;
+  color:white;
+  float: left;
+}
+.all-picture-black span{
+  margin-top: 83px;
+  margin-right: 10%;
+  color:white;
+  float: right;
+
+}
+
 
 .search-form {
   margin-bottom: 20px;

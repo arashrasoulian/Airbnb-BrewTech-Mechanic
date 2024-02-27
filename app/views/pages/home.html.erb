@@ -1,6 +1,6 @@
 <div id="slideshow-container">
   <%= render "shared/slideshow" %>
-  <%= render "shared/filter" %>
+  <%= render "shared/filter", id:"filter-line" %>
 </div>
 
 <div>
@@ -24,16 +24,7 @@
       or rent out your own place and make some money 😉 </p>
     <% end %>
                           <% # searchbar in all text %>
-    <div class="search-form" >
-      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-                           params[:query],
-                           class: "form-control",
-                           placeholder: "Type a keyword" %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-
+ 
 
   </div>
 
