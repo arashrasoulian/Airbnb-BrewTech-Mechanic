@@ -6,27 +6,34 @@
   <% index = 0  %>
   <% d = 0  %>
   <% @flats.each do |flat| %>
+
     <% if (index % 3 == 0 && index % 2  == 0) || ((index+1) % 3 == 0 && (index+1) % 2  == 0)%>
-      <% d = 6  %>
+      <% d = 5  %>
     <% else  %>
       <% d = 3  %>
     <% end  %>
     <% index = index + 1  %>
 
-    <div class="flat col-<%=d%> mt-4 p-0">
-      <div class="flat-image m-0">
-        <% if flat.photo.attached? %>
-          <%= cl_image_tag flat.photo.key, crop: :fill ,style: "height: 180px;"  %>
-        <% else %>
-          <%= image_tag "no_image.jpeg", style: "height: 180px;" %>
-        <% end %>
+      <div class="flat col-<%=d%> mt-3 p-0 ml-3">
 
-        <div class="all-picture-black w-100">
-          <p>  <%= flat.city %></p>
-          <span> <%= flat.price %></span>
-          <span><%= image_tag "currency-euro.svg", style:"height:20px;" %></span>
+        <div class="flat-image m-0">
+          <%= link_to flat_path(flat) do %>
+            <% if flat.photo.attached? %>
+
+              <%= cl_image_tag flat.photo.key, crop: :fill ,style: "height: 180px;"  %>
+
+            <% else %>
+              <%= image_tag "no_image.jpeg", style: "height: 180px;" %>
+            <% end %>
+
+            <div class="all-picture-black w-100">
+              <p>  <%= flat.city %></p>
+              <span> <%= flat.price %></span>
+              <span><%= image_tag "currency-euro.svg", style:"height:20px;" %></span>
+            </div>
+          <% end %>
         </div>
-      </div>
+
     </div>
   <% end %>
 </div>

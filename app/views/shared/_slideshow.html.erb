@@ -1,7 +1,7 @@
-<div data-controller="slideshow" >
+<div data-controller="slideshow" class="slideshow-container">
   <div data-slideshow-target="slide" class="slide" >
     <%= image_tag("slide_1.jpg", id: "slide-1" ) %>
-    <div>Welcome, arash rasoulian to the best and most friendly community of travelers! </div>
+    <div>Welcome to the best and most friendly community of travelers! </div>
   </div>
   <div data-slideshow-target="slide" >
     <%= image_tag("slide-2.png", id: "slide-2") %>
@@ -12,9 +12,9 @@
       <div>during your journey, or rent out your own place and make some money 😉</div>
   </div>
   <div data-action="click->slideshow#prev" id="prev-button">
-    <%= image_tag "chevron-compact-left", style:"height:80px;" %>
+    <%= image_tag "chevron-compact-left.svg", style:"height:80px;" %>
   </div>
   <div data-action="click->slideshow#next" id="next-button">
-    <%= image_tag "chevron-compact-right" , style:"height:80px;"%>
+    <%= image_tag "chevron-compact-right.svg" , style:"height:80px;"%>
   </div>
 </div>
