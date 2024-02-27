@@ -1,31 +1,32 @@
-
-  <div class=" text-center mt-5">
-      <h4>choose the place that fits your comfort</h4>
-    </div>
+<div class=" text-center mt-5">
+  <h4>choose the place that fits your comfort</h4>
+</div>
 
 <div class = "row best-option-container mx-5 ">
+  <% index = 0  %>
+  <% d = 0  %>
+  <% @flats.each do |flat| %>
+    <% if (index % 3 == 0 && index % 2  == 0) || ((index+1) % 3 == 0 && (index+1) % 2  == 0)%>
+      <% d = 6  %>
+    <% else  %>
+      <% d = 3  %>
+    <% end  %>
+    <% index = index + 1  %>
 
-<% index = 0  %>
-<% d = 0  %>
+    <div class="flat col-<%=d%> mt-4 p-0">
+      <div class="flat-image m-0">
+        <% if flat.photo.attached? %>
+          <%= cl_image_tag flat.photo.key, crop: :fill ,style: "height: 180px;"  %>
+        <% else %>
+          <%= image_tag "no_image.jpeg", style: "height: 180px;" %>
+        <% end %>
 
- <% @flats.each do |flat| %>
-
- <% if (index % 3 == 0 && index % 2  == 0) || ((index+1) % 3 == 0 && (index+1) % 2  == 0)%>
- <% d = 6  %>
- <% else  %>
- <% d = 3  %>
- <% end  %>
-
-   <% index = index + 1  %>
-        <div class="flat col-<%=d%> mt-4">
-          <div class="flat-image">
-            <% if flat.photo.attached? %>
-              <%= cl_image_tag flat.photo.key, crop: :fill ,style: "height: 160px;"  %>
-            <% else %>
-              <%= image_tag "no_image.jpeg", style: "height: 180px;" %>
-            <% end %>
-          </div>
-
+        <div class="all-picture-black w-100">
+          <p>  <%= flat.city %></p>
+          <span> <%= flat.price %></span>
+          <span><%= image_tag "currency-euro.svg", style:"height:20px;" %></span>
         </div>
-      <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

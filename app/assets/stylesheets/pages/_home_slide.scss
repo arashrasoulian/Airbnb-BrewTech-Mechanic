@@ -1,15 +1,15 @@
 #slideshow-container {
-  position: relative;
   width: 100%;
   height: 400px;
   overflow: hidden;
   background-color: blue;
+  margin-top: -70px !important;
+  position: relative;
+
 }
 
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.slide > img{
+  object-fit: cover;
 }
 
 #prev-button,
@@ -28,11 +28,8 @@
 #prev-button:hover,
 #next-button:hover {
 opacity:0.7;
-
 }
 
 #next-button {
   right: 80px;
 }
-
-

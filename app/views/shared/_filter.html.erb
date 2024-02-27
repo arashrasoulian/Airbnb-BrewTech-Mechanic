@@ -1,6 +1,6 @@
                           <% # filter on city and price %>
 <%= form_with(url: root_path, method: "get") do |form| %>
-  <div class="row" ,  id="filter-line" >
+  <div class="row" ,  >
     <div class="col-2 px-1">
       <%= form.label :city, "City:" , id:"search-label"  %>
       <%= form.select :city, options_for_select( @cities), { include_blank: "city" }, class: "form-control custom-input"%>
