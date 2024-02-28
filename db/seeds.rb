@@ -20,8 +20,8 @@ User.destroy_all
 flats = YAML.load_file(Rails.root.join("config", "flat_data.yml"))
 flats_data = flats["flats"]
 
-# parises = YAML.load_file(Rails.root.join("config", "paris_flat.yml"))
-# parises_data = parises["parises"]
+parises = YAML.load_file(Rails.root.join("config", "paris_flat.yml"))
+parises_data = parises["parises"]
 
 puts "Creating 10 fake Users"
 
@@ -34,28 +34,28 @@ users = 10.times.map do
   )
 end
 
-# puts "Creating 4 fake Flats in paris"
-# parises_data.each_with_index do |flat_data, i|
-#   flat = Flat.new(
-#     name: flat_data["name"],
-#     description: flat_data["description"],
-#     address: flat_data["address"],
-#     city: "paris",
-#     latitude: Faker::Address.latitude,
-#     longitude: Faker::Address.longitude,
-#     user: users[i % users.size]
-#   )
-#   file = URI.open("https://source.unsplash.com/random/?apartment")
-#   flat.photo.attach(io: file, filename: "#{flat.address}.png", content_type: "image/png")
+puts "Creating 4 fake Flats in paris"
+parises_data.each_with_index do |flat_data, i|
+  flat = Flat.new(
+    name: flat_data["name"],
+    description: flat_data["description"],
+    address: flat_data["address"],
+    city: "paris",
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    user: users[i % users.size]
+  )
+  file = URI.open("https://source.unsplash.com/random/?apartment")
+  flat.photo.attach(io: file, filename: "#{flat.address}.png", content_type: "image/png")
 
-#   min_price = 100
-#   max_price = 200
-#   price = rand(min_price..max_price)
+  min_price = 100
+  max_price = 200
+  price = rand(min_price..max_price)
 
-#   flat.price = price
+  flat.price = price
 
-#   flat.save!
-# end
+  flat.save!
+end
 
 puts "Creating 12 fake Flats "
 flats_data.each_with_index do |flat_data, i|
