@@ -5,6 +5,7 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+    @bookings = @flat.bookings
   end
 
   def create
@@ -15,8 +16,8 @@ class FlatsController < ApplicationController
       render :new
     end
   end
-  
-  
+
+
   private
 
   def flat_params
