@@ -20,10 +20,10 @@
           <%= link_to flat_path(flat) do %>
             <% if flat.photo.attached? %>
 
-              <%= cl_image_tag flat.photo.key, crop: :fill ,style: "height: 180px;"  %>
+              <%= cl_image_tag flat.photo.key, crop: :fill ,style: "height: 170px;"  %>
 
             <% else %>
-              <%= image_tag "no_image.jpeg", style: "height: 180px;" %>
+              <%= image_tag "no_image.jpeg", style: "height: 170px;" %>
             <% end %>
 
             <div class="all-picture-black w-100">
