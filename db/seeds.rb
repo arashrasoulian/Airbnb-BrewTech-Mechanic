@@ -18,8 +18,10 @@ Flat.destroy_all
 User.destroy_all
 
 flats = YAML.load_file(Rails.root.join("config", "flat_data.yml"))
-
 flats_data = flats["flats"]
+
+# parises = YAML.load_file(Rails.root.join("config", "paris_flat.yml"))
+# parises_data = parises["parises"]
 
 puts "Creating 10 fake Users"
 
@@ -29,19 +31,33 @@ users = 10.times.map do
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: "securepassword"
-    # Include any other required fields your User model may have
   )
 end
-puts "arash user"
-User.create!(
-  first_name: "arash",
-  last_name: "rasoulian",
-  email: "arash@gmail.com",
-  password: "123456"
-  # Include any other required fields your User model may have
-)
 
-puts "Creating 10 fake Flats"
+# puts "Creating 4 fake Flats in paris"
+# parises_data.each_with_index do |flat_data, i|
+#   flat = Flat.new(
+#     name: flat_data["name"],
+#     description: flat_data["description"],
+#     address: flat_data["address"],
+#     city: "paris",
+#     latitude: Faker::Address.latitude,
+#     longitude: Faker::Address.longitude,
+#     user: users[i % users.size]
+#   )
+#   file = URI.open("https://source.unsplash.com/random/?apartment")
+#   flat.photo.attach(io: file, filename: "#{flat.address}.png", content_type: "image/png")
+
+#   min_price = 100
+#   max_price = 200
+#   price = rand(min_price..max_price)
+
+#   flat.price = price
+
+#   flat.save!
+# end
+
+puts "Creating 12 fake Flats "
 flats_data.each_with_index do |flat_data, i|
   flat = Flat.new(
     name: flat_data["name"],

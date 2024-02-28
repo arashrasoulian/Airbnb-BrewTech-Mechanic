@@ -12,14 +12,13 @@
     <h2 class="d-flex justify-content-between align-items-center" >
       <%= @flat.name %>
       <span class=""style=" color:#af9788; display: inline-block; margin-right: 80px !important;" >
-        price: <%= @flat.price %>
+        Price: <%= @flat.price %>
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-currency-euro" viewBox="0 0 16 16">
         <path d="M4 9.42h1.063C5.4 12.323 7.317 14 10.34 14c.622 0 1.167-.068 1.659-.185v-1.3c-.484.119-1.045.17-1.659.17-2.1 0-3.455-1.198-3.775-3.264h4.017v-.928H6.497v-.936q-.002-.165.008-.329h4.078v-.927H6.618c.388-1.898 1.719-2.985 3.723-2.985.614 0 1.175.05 1.659.177V2.194A6.6 6.6 0 0 0 10.341 2c-2.928 0-4.82 1.569-5.244 4.3H4v.928h1.01v1.265H4v.928z"/>
         </svg>
       </span>
     </h2>
     <h5> <%= "#{@flat.city} , #{@flat.address}" %></h5>
-
 
     <ul class="show-booking mt-3 ">
       <% @bookings.each do |booking| %>
@@ -32,36 +31,29 @@
 
     <hr class="my-4" style="width: 60%; margin: 0 auto; border: 0; border-top: 2px solid #af7957;">
 
-
-
     <div class="row">
       <div class="col-8">
-        <h3 class="mt-2"> description:  </h3>
+        <h3 class="mt-2"> Description:  </h3>
         <p class="mt-3" style="font-size:13px;"><%= @flat.description %></p>
-        <button type="button" class="btn btn-danger mb-5" data-bs-toggle="modal" data-bs-target="#reservationModal">
-        Book now
-        </button>
-
+        <div class="text-center">
+          <button type="button" class="btn btn-danger mb-5" data-bs-toggle="modal" data-bs-target="#reservationModal">
+          Book now
+          </button>
+        </div>
       </div>
 
       <div class="col-4">
         <div class="map">
-          <h2>Location:</h2>
-          <div style="width: 400px; height: 500px;"
+          <div style="width: 300px; height: 300px;"
             data-controller="map"
             data-map-markers-value="<%= @marker.to_json %>"
             data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
-
+          </div>
         </div>
       </div>
-      </div>
-
     </div>
-
   </div>
-
 </div>
-
 
                                                  <!-- Modal -->
 <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
@@ -75,5 +67,3 @@
         <%= render 'bookings/form', flat: @flat %>
       </div>
     </div>
-
-
