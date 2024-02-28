@@ -1,6 +1,6 @@
-<div id="top-page-container ">
+<div id="top-page-container">
   <%= render "shared/slideshow" %>
-  <%= render "shared/filter", id:"filter-line" %>
+  <%= render "shared/filter"  %>
 </div>
 
 <div>
@@ -12,25 +12,6 @@
 </div>
 
 
-
-
-
-
-  <div class="user-greeting mt-5 text-center" >
-
-    <% if user_signed_in? %>
-      <p>Welcome, <b><%= "#{current_user.first_name} #{current_user.last_name}" %></b> to the best and most friendly community of travelers!
-      Here, you can rent an apartment or a room and have a wonderful experience during your journey,
-      or rent out your own place and make some money 😉 </p>
-    <% end %>
-                          <% # searchbar in all text %>
-
-
-  </div>
-
-
-
-  <h1 class="my-4">AirbnbBrewTechMechanicClassName</h1>
   <div class="row">
     <div class=" col-8 row ">
 

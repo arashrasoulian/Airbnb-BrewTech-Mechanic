@@ -2,19 +2,29 @@
 .slideshow-container{
   width: 100%;
   height: 400px;
+  position: relative;
 }
 .slide {
-  position: relative;
-  object-fit: cover;
 }
 .slide > img{
   object-fit: cover;
-
+  width: 100%;
+  height: 400px;
+}
+.slide div{
+  font-size: 20px;
+  font-weight: 700;
+  top: 180px;
+  left:20%;
+  position: absolute;
 }
 #filter-line{
-  top: 100px;
+  left:5%;
+  top: 10px;
   z-index: 1000;
+  position: absolute;
 }
+
 
 #prev-button,
 #next-button {

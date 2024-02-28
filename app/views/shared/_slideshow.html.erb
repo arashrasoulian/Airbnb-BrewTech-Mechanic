@@ -1,14 +1,18 @@
+
+ <% if user_signed_in? %>
+ <% name = "#{current_user.first_name} #{current_user.last_name}"  %>
+<% end %>
 <div data-controller="slideshow" class="slideshow-container">
   <div data-slideshow-target="slide" class="slide" >
-    <%= image_tag("slide_1.jpg", id: "slide-1" ) %>
-    <div>Welcome to the best and most friendly community of travelers! </div>
+    <%= image_tag("slide_1.jpg", id: "slide-1" ,style:"width:100%; height:400px; opacity:0.7;")  %>
+    <div>Welcome,<span style="color:red;"><%=name %></span> to the best and most friendly community of travelers! </div>
   </div>
-  <div data-slideshow-target="slide" >
-    <%= image_tag("slide-2.png", id: "slide-2") %>
+  <div data-slideshow-target="slide"  class="slide">
+    <%= image_tag("slide-2.png", id: "slide-2" ,style:"width:100%; height:400px; opacity:0.7;") %>
     <div>Here, you can rent an apartment or a room and have a wonderful experience </div>
   </div>
-  <div data-slideshow-target="slide">
-      <%= image_tag("slide-3.png", id: "slide-3") %>
+  <div data-slideshow-target="slide" class="slide">
+      <%= image_tag("slide-3.png", id: "slide-3",style:"width:100%; height:400px; opacity:0.7;") %>
       <div>during your journey, or rent out your own place and make some money 😉</div>
   </div>
   <div data-action="click->slideshow#prev" id="prev-button">

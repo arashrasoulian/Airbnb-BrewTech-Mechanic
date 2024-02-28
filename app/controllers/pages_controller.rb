@@ -3,6 +3,10 @@ class PagesController < ApplicationController
 
   def home
     @cheapest_flats = Flat.order(price: :asc).limit(3)
+    @cheapest_flats = Flat.all.where(city: params[:city]).limit(3) if params[:city].present?
+    @cheapest_flats = Flat.all.where("price >= ?", params[:min_price]).limit(3) if params[:min_price].present?
+    @cheapest_flats = Flat.all.where("price <= ?", params[:max_price]).limit(3) if params[:max_price].present?
+
     @cities = Flat.pluck(:city).uniq
     if params[:query].present?
       @flats = Flat.search_by_name_and_description(params[:query])

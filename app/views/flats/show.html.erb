@@ -1,20 +1,20 @@
 
-<div class="row mt-5">
-  <div class="col-5 ">
+<div class="show-photo">
+  <div class="">
     <% if @flat.photo.attached?  %>
       <%= cl_image_tag @flat.photo.key, crop: :fill,  style: "width: 400px; height: 500px;" %>
     <% else %>
       <%= image_tag "no_image.jpeg",  style: "width: 400px; height: 500px;" %>
     <% end %>
   </div>
-  <div class="col-7  mt-3">
-  <div class="text-center">
-    <h1> <%= @flat.name %></h1>
+  <div class=" m-4">
+  <div class="">
+    <h2> <%= @flat.name %> <span class="float-end"style="float-right">price: <%= @flat.price %> </span></h2>
     <h3> <%= "#{@flat.name} , #{@flat.city}" %></h1>
   </div>
 
     <p class="mt-3"><%= @flat.description %></p>
-     <h3 class="mt-3"> price: <%= @flat.price %>  </h3>
+     <h3 class="mt-3">  </h3>
     <div class="">
 
     <div class="mt-5 ">
