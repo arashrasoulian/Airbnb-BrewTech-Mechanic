@@ -1,10 +1,28 @@
 .show-photo {
-width: 80% !important;
+width: 88% !important;
 margin-left: 10%;
 }
 .show-photo img{
-  width: 100% !important;
+  width: 91% !important;
+  height: 400px;
 
   border-radius: 30px;
-  margin-top: 5%;
+  margin-top: 2%;
+}
+
+.show-booking {
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 12px;
+  margin-left: -20px;
+}
+
+.show-booking li{
+background-color: rgb(221, 193, 133);
+list-style-type: none;
+margin-right: 12px;
+padding: 6px;
+border-radius: 10px;
+margin-top: 5px;
+
 }

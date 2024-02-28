@@ -22,6 +22,16 @@
     </ol>
   </div>
 
+  
+     <ul class="show-booking mt-5">
+        <% @bookings.each do |booking| %>
+          <li >
+             <%= booking.start_date.strftime("%y-%m-%d") %>&nbsp;&nbsp;&nbsp;&nbsp; <!-- Add extra spaces -->
+             <%= booking.end_date.strftime("%y-%m-%d") %>
+            <!-- Add any other booking details you want to display -->
+          </li>
+        <% end %>
+      </ul>
   <!--div class="flex-item">
     <h2>My Booking_requests:</h2>
     <ol>
