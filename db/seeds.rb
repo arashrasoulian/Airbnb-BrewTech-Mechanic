@@ -11,6 +11,8 @@ require "faker"
 require "open-uri"
 require "yaml"
 
+Booking.destroy_all
+
 Flat.destroy_all
 
 User.destroy_all
