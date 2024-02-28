@@ -1,37 +1,101 @@
-<div class="flex-container">
-  <h2>My profile</h2>
-  <div class="flex-item">
-    <p>Username: <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-    <p>Email: <%= current_user.email %></p>
+<div class="container p-5">
+  <h2 class="text-center">My profile</h2>
+  <div class="flex-item  mt-5" >
+    <p>Username: <b><%= "#{current_user.first_name} #{current_user.last_name}" %></b></p>
+    <p>Email:<b> <%= current_user.email %></b></p>
 
     <%= link_to 'Edit Profile', edit_profile_path %>
   </div>
+  <h2 class="mt-5">My Bookings:</h2>
+  <div class="booking-card-container">
 
-  <div class="flex-item">
-    <h2>My Bookings:</h2>
-    <ol>
+    <div class="row">
       <% @bookings.each do |booking| %>
-        <li>
-          <p><%= booking.flat.address %></p>
-          <%= link_to 'Show', booking_path(booking) %> |
-          <!--for some reason (didn't understand why, can't find another page)
-          here is redirected to the page with new booking, but not existing one-->
-          <%= link_to 'Edit', edit_booking_path(booking) %>
-        </li>
+        <div class="col-md-3">
+          <div class="profile-card mb-4">
+            <!-- Card image -->
+            <% if booking.flat.photo.attached? %>
+                <%= cl_image_tag booking.flat.photo.key, crop: :fill ,style: ""  %>
+            <% else %>
+                <%= image_tag "no_image.jpeg", style: "" %>
+            <% end %>
+            <div class="profile-card-body m-3">
+              <!-- Booking details -->
+              <h5 class="card-title"><%= booking.flat.name %></h5>
+              <p class="card-text">Address: <%= booking.flat.address %></p>
+              <p class="card-text">Price: <%= booking.flat.price %></p>
+
+              <ul class="show-booking mt-3 ">
+                  <li >
+                    <%= booking.start_date.strftime("%y-%m-%d") %>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= booking.end_date.strftime("%y-%m-%d") %>
+                  </li>
+              </ul>
+              <div class="mt-2">
+                <%= link_to 'Show', booking_path(booking) %>
+                <span class="float-end ">
+                <%= link_to 'Edit', edit_booking_path(booking) %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </ol>
+    </div>
   </div>
 
-  
-     <ul class="show-booking mt-5">
-        <% @bookings.each do |booking| %>
-          <li >
-             <%= booking.start_date.strftime("%y-%m-%d") %>&nbsp;&nbsp;&nbsp;&nbsp; <!-- Add extra spaces -->
-             <%= booking.end_date.strftime("%y-%m-%d") %>
-            <!-- Add any other booking details you want to display -->
-          </li>
+
+  <div class="flex-item">
+    <h2>My flats:</h2>
+    <% if current_user.flats.any? %>
+      <ol>
+        <% current_user.flats.each do |flat| %>
+
+          <div class="col-md-3">
+            <div class="profile-card mb-4">
+              <!-- Card image -->
+              <% if flat.photo.attached? %>
+                  <%= cl_image_tag flat.photo.key, crop: :fill ,style: "height: 170px;"  %>
+              <% else %>
+                  <%= image_tag "no_image.jpeg", style: "height: 170px;" %>
+              <% end %>
+              <div class="profile-card-body">
+                <!-- Booking details -->
+                <h5 class="card-title"><%= booking.flat.name %></h5>
+                <p class="card-text">Address: <%= flat.address %></p>
+                <p class="card-text">Price: <%= flat.price %></p>
+                <%= link_to 'Show', flat_path(flat) %>
+                <%= link_to 'Edit', edit_flat_path(flat) %>
+                <%= link_to 'Delete', flat_path(flat) %>
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+            <p><%= flat.address %></p>
+            <p><%= flat.name %></p>
+
         <% end %>
-      </ul>
+      </ol>
+    <% else %>
+      <p>You haven't created any flats yet.</p>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+
   <!--div class="flex-item">
     <h2>My Booking_requests:</h2>
     <ol>
@@ -44,25 +108,3 @@
       <% end %>
     </ol>
   </div-->
-
-
-  <div class="flex-item">
-    <h2>My flats:</h2>
-    <% if current_user.flats.any? %>
-      <ol>
-        <% current_user.flats.each do |flat| %>
-          <li>
-            <p><%= flat.address %></p>
-            <p><%= flat.name %></p>
-            <%= link_to 'Show', flat_path(flat) %> |
-            <%= link_to 'Edit', edit_flat_path(flat) %>
-            <%= link_to 'Delete', flat_path(flat) %>
-          </li>
-        <% end %>
-      </ol>
-    <% else %>
-      <p>You haven't created any flats yet.</p>
-    <% end %>
-  </div>
-
-</div>
