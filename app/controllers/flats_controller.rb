@@ -1,11 +1,21 @@
 class FlatsController < ApplicationController
+
   def new
     @flat = current_user.flats.build
   end
 
   def show
     @flat = Flat.find(params[:id])
+
     @bookings = @flat.bookings
+
+    @marker = [
+      {
+        lat: @flat.latitude,
+        lng: @flat.longitude
+      }
+    ]
+
   end
 
   def create
@@ -16,7 +26,6 @@ class FlatsController < ApplicationController
       render :new
     end
   end
-
 
   private
 
